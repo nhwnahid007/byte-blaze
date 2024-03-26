@@ -1,18 +1,23 @@
 import { useState } from "react";
-import { Link, Outlet, useLoaderData } from "react-router-dom";
+import { Link, Outlet, useLoaderData, } from "react-router-dom";
+import { MdBookmarkAdd } from "react-icons/md";
 
 const SingleBlog = () => {
   const singleBlog = useLoaderData();
-  const [tabindex,setTabindex] =useState()
+ 
+  const [tabindex, setTabindex] = useState();
   const {
     comments_count,
     title,
     reading_time_minutes,
     public_reactions_count,
     published_at,
-    tags
   } = singleBlog;
 
+  const handleBookmark = singleBlog =>{
+    console.log(singleBlog)
+  }
+ 
   return (
     <div className="max-w-3xl px-6 py-16 mx-auto space-y-12">
       <article className="space-y-8 dark:bg-gray-100 dark:text-gray-900">
@@ -34,10 +39,10 @@ const SingleBlog = () => {
         </div>
         <div className="flex items-center -mx-4 overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap dark:bg-gray-100 dark:text-gray-800">
           <Link
-            to={''}
-            onClick={()=> setTabindex(0)}
+            to={""}
+            onClick={() => setTabindex(0)}
             className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2  rounded-t-lg ${
-                tabindex ===0 ? 'border border-b-0' : 'border-b' 
+              tabindex === 0 ? "border border-b-0" : "border-b"
             } dark:border-gray-600 dark:text-gray-900`}
           >
             <svg
@@ -56,9 +61,9 @@ const SingleBlog = () => {
           </Link>
           <Link
             to={`author`}
-            onClick={()=> setTabindex(1)}
+            onClick={() => setTabindex(1)}
             className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2  rounded-t-lg ${
-                tabindex ===1 ? 'border border-b-0' : 'border-b' 
+              tabindex === 1 ? "border border-b-0" : "border-b"
             } dark:border-gray-600 dark:text-gray-900`}
           >
             <svg
@@ -76,6 +81,7 @@ const SingleBlog = () => {
             </svg>
             <span>Author</span>
           </Link>
+         <div onClick={()=>handleBookmark(singleBlog)} className="bg-primary p-3 ml-5 rounded-full hover:bg-opacity-30 bg-opacity-20 cursor-pointer hover:scale-105 overflow-hidden"> <MdBookmarkAdd size={20} className="text-secondary" />  </div>   
         </div>
         <div className="dark:text-gray-800">
           <p>Insert the actual text content here...</p>
@@ -84,19 +90,6 @@ const SingleBlog = () => {
       </article>
 
       <div>
-        <div className="flex flex-wrap py-6 gap-2 border-t border-dashed dark:border-gray-600">
-            {
-                tags.map(tag => <a key={tag}
-                    rel="noopener noreferrer"
-                    href="#"
-                    className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-600 dark:text-gray-50"
-                  >
-                    #{tag}
-                  </a> )
-            }
-          
-         
-        </div>
         <div className="space-y-2">
           <h4 className="text-lg font-semibold">Related posts</h4>
           <ul className="ml-4 space-y-1 list-disc">
