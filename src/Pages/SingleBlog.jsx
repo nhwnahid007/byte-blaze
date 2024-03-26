@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, Outlet, useLoaderData } from "react-router-dom";
 
 const SingleBlog = () => {
   const singleBlog = useLoaderData();
@@ -79,7 +79,9 @@ const SingleBlog = () => {
         <div className="dark:text-gray-800">
           <p>Insert the actual text content here...</p>
         </div>
+        <Outlet></Outlet>
       </article>
+
       <div>
         <div className="flex flex-wrap py-6 gap-2 border-t border-dashed dark:border-gray-600">
           <a
