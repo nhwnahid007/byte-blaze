@@ -6,20 +6,28 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Pages/Home.jsx";
 import Blogs from "./Pages/Blogs.jsx";
 import Bookmarks from "./Pages/Bookmarks.jsx";
+import MainLayout from "./layouts/MainLayout.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
+    element: <MainLayout></MainLayout>,
+    children: [
+      {
+        index: true,
+        element: <Home></Home>
+      },
+      {
+        path: '/blogs',
+        element: <Blogs></Blogs>
+      },
+      {
+        path: '/bookmarks',
+        element: <Bookmarks></Bookmarks>
+      }
+  ]
   },
-  {
-    path: '/blogs',
-    element: <Blogs></Blogs>
-  },
-  {
-    path: '/bookmarks',
-    element: <Bookmarks></Bookmarks>
-  }
+  
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
