@@ -10,6 +10,7 @@ const SingleBlog = () => {
     reading_time_minutes,
     public_reactions_count,
     published_at,
+    tags
   } = singleBlog;
 
   return (
@@ -84,27 +85,17 @@ const SingleBlog = () => {
 
       <div>
         <div className="flex flex-wrap py-6 gap-2 border-t border-dashed dark:border-gray-600">
-          <a
-            rel="noopener noreferrer"
-            href="#"
-            className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-600 dark:text-gray-50"
-          >
-            #MambaUI
-          </a>
-          <a
-            rel="noopener noreferrer"
-            href="#"
-            className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-600 dark:text-gray-50"
-          >
-            #TailwindCSS
-          </a>
-          <a
-            rel="noopener noreferrer"
-            href="#"
-            className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-600 dark:text-gray-50"
-          >
-            #Angular
-          </a>
+            {
+                tags.map(tag => <a key={tag}
+                    rel="noopener noreferrer"
+                    href="#"
+                    className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-600 dark:text-gray-50"
+                  >
+                    #{tag}
+                  </a> )
+            }
+          
+         
         </div>
         <div className="space-y-2">
           <h4 className="text-lg font-semibold">Related posts</h4>
