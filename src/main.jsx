@@ -15,19 +15,19 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home></Home>
+        element: <Home></Home>,
       },
       {
-        path: '/blogs',
-        element: <Blogs></Blogs>
+        path: "/blogs",
+        element: <Blogs></Blogs>,
+        loader: () => fetch("https://dev.to/api/articles?per_page=20&top=7"),
       },
       {
-        path: '/bookmarks',
-        element: <Bookmarks></Bookmarks>
-      }
-  ]
+        path: "/bookmarks",
+        element: <Bookmarks></Bookmarks>,
+      },
+    ],
   },
-  
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

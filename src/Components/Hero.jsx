@@ -2,11 +2,14 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <div className="hero">
+    <div className="hero bg-white -mt-16">
       <div className="hero-content text-center">
         <div className="max-w-lg">
           <h1 className="text-5xl font-bold">
-            Welcome to <span>ByteBlaze</span>
+            Welcome to{" "}
+            <span className="bg-gradient-to-r from-primary via-blue-500 bg-300% to-secondary text-transparent bg-clip-text animate-gradient">
+              ByteBlaze
+            </span>
           </h1>
           <p className="py-6">
             <p>
